@@ -1,0 +1,6 @@
+# Dependencias
+node_modules/
+vendor/
+*.pyc
+__pycache__/
+/target/  # Rust, Java

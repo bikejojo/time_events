@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const Event = requiere('../models/');
-const EventManager = requiere('../services/')
+const Event = require('../models/Evento.js');
+const EventManager = require('../services/EventManager.js')
 
 const manager = new EventManager();
 

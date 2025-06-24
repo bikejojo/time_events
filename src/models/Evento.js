@@ -6,3 +6,5 @@ class Evento {
         this.tiempoFin = tiempoFin;
     }
 }
+
+module.exports = Evento

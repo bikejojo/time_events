@@ -66,4 +66,4 @@ class EventManager {
     }
 }
 
-module.exports = { EventManager }
+module.exports =  EventManager;

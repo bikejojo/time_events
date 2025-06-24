@@ -4,12 +4,12 @@ const { events } = require ('../data/storage')
 class EventManager {
     registrarEvent(eventNuevo){
         try {
-            const event = events.some(event => validacionEvent.validacionSala(event,eventNuevo));
-            if(event){
+            const revision = events.some(event => validacionEvent.validacionSala(event,eventNuevo));
+            if(revision){
                 return {success:false , message:'El evento a registrar choca con otro evento previamente registrado'}
             }
 
-            events.push(event);
+            events.push(eventNuevo);
             return { success:true , message: 'Registro exitoso de evento'};
 
         } catch(err){
@@ -41,8 +41,24 @@ class EventManager {
         }
     }
 
-    actualizarEvent(data){
+    actualizarEvent(eventActualizar){
         try {
+            const cleanString = str => str.trim().toLowerCase();
+            const index = events.findIndex(event => cleanString(event.nombreEvento) === cleanString(eventActualizar.nombreEvento) )
+
+            if (index === -1) {
+                return {
+                    success: false,
+                    message: 'Evento no encontrado.'
+                };
+            }
+
+            events[index] = { ...events[index],...eventActualizar}
+
+            return {
+                success: true,
+                message: 'Evento actualizado correctamente.'
+            };
 
         }catch(err){
             console.log('Error en la funcion ActEven y son: ' + err.message);

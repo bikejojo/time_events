@@ -1,5 +1,6 @@
 const validacionEvent = require('../utils/validaciones')
-const { events } = require ('../data/storage')
+const { events } = require ('../data/storage');
+const typeStatus = require('../common/status');
 
 class EventManager {
     registrarEvent(eventNuevo){
@@ -31,7 +32,9 @@ class EventManager {
                     success: false , message:'Fallas al cancelar.'
                 }
             }
-            events.splice(index,1);
+            //events.splice(index,1);
+            events[index].status = typeStatus.inactive;
+
         }catch(err){
             console.log('Error en la funcion CancEven y son: ' + err.message);
             return {
@@ -69,16 +72,14 @@ class EventManager {
         }
     }
 
-    listarEvents(){
-        try {
+    listarEventosActivo(tiempoInicios , tiempoFins){
+        const inicio = new Date(tiempoInicios);
+        const fin = new Date(tiempoFins);
+        return events.filter(event => event.tiempoInicio < fin && event.tiempoFin > inicio  && event.status === 1);
+    }
 
-        }catch(err){
-            console.log('Error en la funcion ListEven y son: ' + err.message);
-            return {
-                success:false,
-                message:'Error en la funcion ListEven y son: ' + err.message
-            }
-        }
+    listarEventos(){
+        return events;
     }
 }
 

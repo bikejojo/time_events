@@ -1,3 +1,4 @@
+const { events } = require('../data/storage');
 const Event = require('../models/Evento');
 const EventManager = require('../services/EventManager')
 
@@ -12,6 +13,7 @@ const registroEvent = (req,res) => {
 
     const event = new Event(nombreEvento, descripcionSala, tiempoInicio, tiempoFin);
     const result = manager.registrarEvent(event);
+    //console.log(events)
     return res.status(result.success ? 201 : 400).json(result);
 }
 
@@ -28,13 +30,15 @@ const actualizarEvent = (req,res) => {
 }
 
 const eliminarEvent = (req , res ) => {
-    const eventName = req.params.nombreEvento;
+    const eventName = req.body.nombreEvento;
     const result = manager.cancelarEvent(eventName);
     res.status(result.success ? 200 : 404).json(result);
 }
 
 const listarEvent = (req , res) => {
-     res.json(manager.listarEventos());
+    console.log(events); 
+    res.json(manager.listarEventos());
+
 }
 
 const actives = (req , res ) => {

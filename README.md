@@ -60,7 +60,7 @@ http://localhost:3001
 
 #### Método: POST
 
-URL: /api/events/registrar
+URL: http://localhost:3000/api/events/registrar
 
 Body (JSON):
 
@@ -80,7 +80,7 @@ Respuesta con conflicto: 400
 
 #### Método: POST
 
-URL: /api/events/actualizar
+URL: http://localhost:3000/api/events/actualizar
 
 Body (JSON):
 
@@ -100,7 +100,7 @@ Respuesta si no se encuentra: 404
 
 #### Método: POST
 
-URL: /api/events/eliminar
+URL: http://localhost:3000/api/events/eliminar
 
 Body (JSON):
 
@@ -127,14 +127,14 @@ Respuesta:Devuelve todos los eventos con status: 1 (activos).
 #### Método: GET
 
 ``` bash
-URL: http://localhost:3001/api/events/activos?tiempoInicio=09:00:00&tiempoFin=11:00:00
+URL: http://localhost:3000/api/events/activos?tiempoInicio=09:00:00&tiempoFin=11:00:00
 ```
 
 Query Parameters:
 
-tiempoInicio → Hora de inicio (formato HH:mm:ss)
+tiempoInicio → Hora de inicio (formato HH:mm:ss) en String
 
-tiempoFin → Hora de fin (formato HH:mm:ss)
+tiempoFin → Hora de fin (formato HH:mm:ss) en String
 
 Respuesta:Devuelve todos los eventos activos que estén dentro del rango solicitado.
 

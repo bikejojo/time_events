@@ -1,7 +1,10 @@
 # API Gestor de Eventos
 
 API RESTful desarrollada en Node.js + Express para gestionar eventos en diferentes salas, garantizando que no haya conflictos de horarios dentro de la misma sala.
-Almacenamiento por el momento se guarda en memoria , no en la base de datos de algun tipo.
+
+## Descripcion
+
+Gestiona y recopila la informacion por medio de una api , los datos estan almacenados por el momento en memoria , no en la base de datos de algun tipo. Las horas que entran en comparacion estan en String y no algun tipo de dato especifico.
 
 ## Requisitos Previos
 

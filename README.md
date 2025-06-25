@@ -140,12 +140,24 @@ Respuesta:Devuelve todos los eventos activos que estén dentro del rango solicit
 
 ## ⚙️ Estructura Principal
 
-/routes/events.js → Rutas de la API
+📂 **Estructura del Proyecto**  
 
-/controllers/eventController.js → Controladores (lógica HTTP)
+├── 🛣️ **/routes/events.js**  
+│   → Endpoints de la API (GET/POST/PUT/DELETE)  
+│   → Ejemplo: `POST /api/events`  
 
-/services/EventManager.js → Lógica de negocio
+├── 🎮 **/controllers/eventController.js**  
+│   → Manejo de requests/responses HTTP  
+│   → Llama a servicios (`EventManager`)  
 
-/models/Evento.js → Modelo del evento
+├── ⚙️ **/services/EventManager.js**  
+│   → Lógica de negocio centralizada  
+│   → Validaciones, cálculos, reglas de negocio  
 
-/utils/validaciones.js → Validaciones de solapamiento
+├── 🗃️ **/models/Evento.js**  
+│   → Modelo de datos (Mongoose/Sequelize)  
+│   → Schema: `{ title, date, duration, ... }`  
+
+└── 🔍 **/utils/validaciones.js**  
+    → Validaciones custom (ej: solapamiento de eventos)  
+    → Funciones reutilizables 

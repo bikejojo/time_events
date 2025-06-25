@@ -5,9 +5,12 @@ const typeStatus = require('../common/status');
 class EventManager {
     registrarEvent(eventNuevo){
         try {
-            const revision = events.some(event => validacionEvent.validacionSala(event,eventNuevo));
-            if(revision){
-                return {success:false , message:'El evento a registrar choca con otro evento previamente registrado'}
+            const eventosConNuevo = [...events, eventNuevo];
+
+            const revision = validacionEvent.validacionSala(eventosConNuevo);
+
+            if(!revision.valid){
+                return {success:false , message: revision.message}
             }
 
             events.push(eventNuevo);
@@ -34,6 +37,8 @@ class EventManager {
             }
             //events.splice(index,1);
             events[index].status = typeStatus.inactive;
+            return { success:true , message: 'Eliminacion exitosa de evento'};
+
 
         }catch(err){
             console.log('Error en la funcion CancEven y son: ' + err.message);
@@ -79,7 +84,7 @@ class EventManager {
     }
 
     listarEventos(){
-        return events;
+       return events.filter(event => event.status === 1);
     }
 }
 

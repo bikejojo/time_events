@@ -8,7 +8,7 @@ API RESTful desarrollada en Node.js + Express para gestionar eventos en diferent
 - Postman para consumir los endpoints configurado en HEADERS: Content-Type -> application/json
 - Git (opcional para clonar el proyecto)
 
-### 🚀 Instalación
+## 🚀 Instalación
 
 Clona el repositorio:
 
@@ -22,6 +22,20 @@ Instala las dependencias:
 
 npm install
 
-#### Cómo levantar la API
+## Cómo levantar la API
 
 En modo desarrollo:
+
+npm run dev
+
+En modo produccion :
+
+npm start
+
+El servidor se levantará en:
+
+http://localhost:3000
+
+en caso de estar ocupado el puerto 3000
+
+http://localhost:3001

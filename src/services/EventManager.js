@@ -78,8 +78,8 @@ class EventManager {
     }
 
     listarEventosActivo(tiempoInicios , tiempoFins){
-        const inicio = new Date(tiempoInicios);
-        const fin = new Date(tiempoFins);
+        const inicio = tiempoInicios;
+        const fin = tiempoFins;
         return events.filter(event => event.tiempoInicio < fin && event.tiempoFin > inicio  && event.status === 1);
     }
 
